@@ -1,6 +1,3 @@
-import * as PostForm from './post-form';
+import * as PostForm from "./post-form";
 
-
-export {
-  PostForm
-}
+export { PostForm };

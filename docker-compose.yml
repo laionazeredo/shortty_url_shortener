@@ -20,6 +20,5 @@ services:
     environment:
       DATABASE_URL: postgres://pguser:pgpass:5432/shortty
 
-
 volumes:
   pgdata:

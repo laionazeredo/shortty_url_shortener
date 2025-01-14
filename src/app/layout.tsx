@@ -18,11 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${ubuntuSans.variable}  antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${ubuntuSans.variable}  antialiased`}>{children}</body>
     </html>
   );
 }

@@ -4,16 +4,14 @@ Shortty is a URL shortener service that allows you to shorten long URLs to a sho
 
 ## Features
 
-
 ## Installation
 
 1. Clone the repository
 2. Install the dependencies
+
 ```bash
 
 npm install
 ```
-
-
 
 ## Usage
