@@ -1,3 +1,3 @@
-import * as PostForm from "./post-form";
+import * as UrlActions from "./urls";
 
-export { PostForm };
+export { UrlActions };
