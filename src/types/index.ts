@@ -7,3 +7,8 @@ export interface UrlModel {
 }
 
 export type UrlModelFlat = Omit<UrlModel, "id">;
+
+export type UrlShortenerContextType = {
+  urlModel: UrlModelFlat | null | Error;
+  setUrlModel: (urlModel: UrlShortenerContextType["urlModel"]) => void;
+};

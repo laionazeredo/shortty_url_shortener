@@ -1,4 +1,4 @@
-import { UrlModelFlat, URLString } from "@/types/url.types";
+import { UrlModelFlat, URLString } from "@/types";
 
 export const urlModelBuilder = ({
   original,

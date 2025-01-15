@@ -1,6 +1,6 @@
 "use server";
 
-import { UrlModelFlat, URLString } from "@/types/url.types";
+import { UrlModelFlat, URLString } from "@/types";
 import { generateShortenedUrl, urlModelBuilder } from "@/utils";
 
 const fakeDB = (() => {
