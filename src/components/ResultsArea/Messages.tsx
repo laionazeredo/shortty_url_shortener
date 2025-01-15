@@ -11,7 +11,8 @@ export const SuccessMessage = ({ urlModel }: SuccessMessageProps) => (
       <strong>Original URL:</strong> {urlModel?.original}
     </p>
     <p>
-      <strong>Shortened URL:</strong> {urlModel?.shortened}
+      <strong>Shortened URL:</strong>{" "}
+      {`${window.location.origin}/${urlModel?.shortened}`}
     </p>
   </section>
 );

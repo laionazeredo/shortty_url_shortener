@@ -1,18 +1,18 @@
-import { UrlModelFlat, URLString } from "@/types";
+import { UrlModelFlat, Slug } from "@/types";
 
 export const urlModelBuilder = ({
   original,
   shortened,
 }: {
-  original: URLString;
-  shortened: URLString;
+  original: Slug;
+  shortened: Slug;
 }): UrlModelFlat => ({
   original,
   shortened,
   createdAt: new Date().toISOString(),
 });
 
-export const generateShortenedUrl = (): URLString => {
-  const shortenedUrl = `http://localhost:3000/${Math.random().toString(36).slice(2)}`;
-  return shortenedUrl;
+export const generateShortenedSlug = (): Slug => {
+  const slug = `${Math.random().toString(36).slice(2)}`;
+  return slug;
 };

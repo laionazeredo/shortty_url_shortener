@@ -1,4 +1,4 @@
-export type URLString = string;
+export type Slug = string;
 export interface UrlModel {
   id: string;
   original: string;

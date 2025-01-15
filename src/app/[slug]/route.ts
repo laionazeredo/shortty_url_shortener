@@ -1,3 +1,4 @@
+import { getSlug } from "@/actions";
 import { NextResponse } from "next/server";
 
 export async function GET(
@@ -7,11 +8,11 @@ export async function GET(
   const slug = params.slug;
 
   try {
-    console.log({ slug });
-    const shortUrl = { original: "https://www.google.com" };
+    const found = await getSlug(slug);
+    const originalUrl = found ? found.original : null;
 
-    if (shortUrl) {
-      return NextResponse.redirect(new URL(shortUrl.original), 301);
+    if (originalUrl) {
+      return NextResponse.redirect(new URL(originalUrl), 301);
     } else {
       return new NextResponse("Original URL not found.", { status: 404 });
     }
