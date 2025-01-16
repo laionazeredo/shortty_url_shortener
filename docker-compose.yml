@@ -19,6 +19,22 @@ services:
       - db
     environment:
       DATABASE_URL: postgresql://pguser:pgpass@localhost:5432/shortty
+    volumes:
+      - next_build:/app/.next
+      - next_cache:/app/.next/cache
+      - next_static:/app/public
+  proxy:
+    image: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+    restart: always
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
 
 volumes:
   pgdata:
+  next_build:
+  next_cache:
+  next_static:
