@@ -18,7 +18,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgresql://pguser:pgpass@localhost:5432/shortty
+      DATABASE_URL: postgresql://pguser:pgpass@db:5432/shortty
     volumes:
       - next_build:/app/.next
       - next_cache:/app/.next/cache

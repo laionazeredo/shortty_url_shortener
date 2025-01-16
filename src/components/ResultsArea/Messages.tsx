@@ -7,7 +7,7 @@ type SuccessMessageProps = {
 };
 export const SuccessMessage = ({ urlModel }: SuccessMessageProps) => {
   const [copyStatus, setCopyStatus] = useState("");
-  const linkRef = useRef(null);
+  const linkRef = useRef<HTMLAnchorElement>(null);
   const url = `${window.location.origin}/${urlModel?.slug}`;
   const HINT_TIMEOUT = 3000;
 

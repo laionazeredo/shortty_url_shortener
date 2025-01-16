@@ -5,13 +5,16 @@
   "scripts": {
     "dev": "npm run format; npm run lint && npm run test && next dev --turbopack",
     "build": "next build",
-    "start": "next start",
+    "start": "npm run db:migration:prepare-db && next start",
     "lint": "next lint",
     "test": "vitest run",
     "test:watch": "vitest --watch",
     "format": "npx prettier . --write",
     "db:migration:generate": "npx drizzle-kit generate",
     "db:migration:run": "npx drizzle-kit migrate",
+    "db:migration:prepare-db": "npm run db:migration:generate && npm run db:migration:run",
+    "container:run": "docker-compose up -d",
+    "container:stop": "docker-compose down",
     "prepare": "husky"
   },
   "dependencies": {
