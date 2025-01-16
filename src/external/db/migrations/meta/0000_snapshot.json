@@ -1,11 +1,11 @@
 {
-  "id": "dcd0e2d1-62d9-401f-be79-e2fb3409bf01",
+  "id": "8e97ffc2-0e38-40da-b6ba-d15b6e3d18a4",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.urls": {
-      "name": "urls",
+    "public.url_hit_tracking": {
+      "name": "url_hit_tracking",
       "schema": "",
       "columns": {
         "id": {
@@ -20,9 +20,45 @@
           "primaryKey": false,
           "notNull": true
         },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "url_hit_tracking_original_urls_original_fk": {
+          "name": "url_hit_tracking_original_urls_original_fk",
+          "tableFrom": "url_hit_tracking",
+          "tableTo": "urls",
+          "columnsFrom": ["original"],
+          "columnsTo": ["original"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.urls": {
+      "name": "urls",
+      "schema": "",
+      "columns": {
+        "original": {
+          "name": "original",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
         "slug": {
           "name": "slug",
-          "type": "text",
+          "type": "varchar(10)",
           "primaryKey": false,
           "notNull": true
         },
@@ -32,19 +68,18 @@
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
+      "uniqueConstraints": {
+        "urls_slug_unique": {
+          "name": "urls_slug_unique",
+          "nullsNotDistinct": false,
+          "columns": ["slug"]
+        }
+      },
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false

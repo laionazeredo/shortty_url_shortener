@@ -1,6 +1,6 @@
 import { UrlModel, Slug, UrlString } from "@/types";
 import { db } from "@/external/db/connection";
-import { UrlTable } from "@/external/db/schema";
+import { UrlHitTrackingTable, UrlTable } from "@/external/db/schema";
 import { eq } from "drizzle-orm";
 
 const MainRepository = (() => {
@@ -46,6 +46,15 @@ const MainRepository = (() => {
           .returning({ slug: UrlTable.slug, original: UrlTable.original })
           .execute();
         return Promise.resolve(inserted[0]);
+      } catch (error) {
+        return Promise.reject(error);
+      }
+    },
+    hitTrack: async (original: UrlString) => {
+      try {
+        await db.insert(UrlHitTrackingTable).values({
+          original: original,
+        });
       } catch (error) {
         return Promise.reject(error);
       }
