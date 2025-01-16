@@ -19,7 +19,7 @@ export const persistUrl = async (payload: Slug) => {
   const alreadyShortened = await fakeDB.get(payload).catch(() => null);
   if (alreadyShortened) return alreadyShortened as UrlModelFlat;
   const shortened = generateShortenedSlug();
-  const url = urlModelBuilder({ original: payload, shortened });
+  const url = urlModelBuilder({ original: payload, slug: shortened });
   return await fakeDB
     .set(url)
     .catch((error) => new Error(`Error persisting url`, { cause: error }));

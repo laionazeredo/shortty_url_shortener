@@ -1,12 +1,14 @@
 export type Slug = string;
+export type UrlString = string;
 export interface UrlModel {
   id: string;
   original: string;
-  shortened: string;
+  slug: string;
   createdAt: string;
+  updatedAt: string;
 }
 
-export type UrlModelFlat = Omit<UrlModel, "id">;
+export type UrlModelFlat = Pick<UrlModel, "original" | "slug">;
 
 export type UrlShortenerContextType = {
   urlModel: UrlModelFlat | null | Error;

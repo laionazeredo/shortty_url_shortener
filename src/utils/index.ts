@@ -1,15 +1,14 @@
-import { UrlModelFlat, Slug } from "@/types";
+import { UrlModelFlat, Slug, UrlString } from "@/types";
 
 export const urlModelBuilder = ({
   original,
-  shortened,
+  slug,
 }: {
-  original: Slug;
-  shortened: Slug;
+  original: UrlString;
+  slug: Slug;
 }): UrlModelFlat => ({
   original,
-  shortened,
-  createdAt: new Date().toISOString(),
+  slug,
 });
 
 export const generateShortenedSlug = (): Slug => {

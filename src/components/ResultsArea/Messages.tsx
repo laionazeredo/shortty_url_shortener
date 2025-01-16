@@ -12,7 +12,7 @@ export const SuccessMessage = ({ urlModel }: SuccessMessageProps) => (
     </p>
     <p>
       <strong>Shortened URL:</strong>{" "}
-      {`${window.location.origin}/${urlModel?.shortened}`}
+      {`${window.location.origin}/${urlModel?.slug}`}
     </p>
   </section>
 );
