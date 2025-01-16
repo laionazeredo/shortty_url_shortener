@@ -22,10 +22,23 @@ const UrlShortenerForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="url">URL</label>
-      <input type="text" id="url" placeholder="https://mylongurl.com" />
-      <input type="submit" value="Shorten!!!" />
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col items-center space-y-8 m-4"
+    >
+      <div className="flex items-center space-x-4">
+        <input
+          type="text"
+          id="url"
+          placeholder="https://mylongurl.com"
+          className="p-2 border border-gray-300 rounded-lg"
+        />
+        <input
+          type="submit"
+          value="Shorten!"
+          className="p-2 bg-purple-800 text-white rounded-lg hover:bg-purple-900 font-bold"
+        />
+      </div>
     </form>
   );
 };

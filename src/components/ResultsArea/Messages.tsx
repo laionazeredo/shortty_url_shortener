@@ -30,7 +30,7 @@ export const SuccessMessage = ({ urlModel }: SuccessMessageProps) => {
   };
 
   return (
-    <section className="mt-8">
+    <section className="mt-8 text-center bg-white p-4 rounded">
       <h2 className="text-2xl font-bold mb-4">Results</h2>
       <h3 className="text-lg font-semibold mb-2">
         Success! Here is your Short URL:
@@ -39,7 +39,7 @@ export const SuccessMessage = ({ urlModel }: SuccessMessageProps) => {
         <strong className="font-medium">Original URL:</strong>{" "}
         {urlModel?.original}
       </p>
-      <p className="flex items-center">
+      <p className="flex items-center justify-center">
         <strong className="font-medium mr-1">Shortened URL:</strong>
         <a
           href={url}
@@ -64,8 +64,12 @@ export const SuccessMessage = ({ urlModel }: SuccessMessageProps) => {
 
 export const ErrorMessage = ({ error }: { error: Error }) => {
   return error instanceof InvalidUrlError ? (
-    <h2>Please, try with a valid URL!</h2>
+    <h2 className="text-center text-md bg-red-100 p-4 rounded">
+      <strong>Please, try with a valid URL!</strong>
+    </h2>
   ) : (
-    <h2>Oops! Something went wrong. Please try again.</h2>
+    <h2 className="text-center text-md bg-red-100 p-4 rounded">
+      <strong>Oops! Something went wrong. Please try again.</strong>
+    </h2>
   );
 };
