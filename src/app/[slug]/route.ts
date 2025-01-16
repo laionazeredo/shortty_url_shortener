@@ -15,7 +15,7 @@ export async function GET(
       trackUrl(originalUrl);
       return NextResponse.redirect(new URL(originalUrl), 301);
     } else {
-      return new NextResponse("Original URL not found.", { status: 404 });
+      return NextResponse.redirect(new URL("/404", request.url), 301);
     }
   } catch (error) {
     console.error("Error finding original URL:", error);
